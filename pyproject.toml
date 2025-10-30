@@ -1,0 +1,49 @@
+[project]
+name = "dsnd-recommendation-systems-project"
+version = "1.0.0"
+description = "Data Science Recommendation System"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "notebook>=7.4.7",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "pandoc>=2.4",
+    "pyright>=1.1.407",
+    "pytest>=8.4.2",
+    "ruff>=0.14.2",
+    "scikit-learn>=1.7.2",
+]
+
+
+[tool.pyright]
+pythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "basic"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+exclude = [
+    '*/_generated_resources.py',
+    '*-notebooks/*',
+    '*/evaluatorLib/Lib/*'
+]
+
+[tool.ruff.lint]
+extend-select = ["N", "E5", "I"]
+ignore = ["N818", "N803"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.setuptools.packages.find]
+exclude = ["data"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
